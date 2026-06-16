@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.getandroid.com/apk/res/android"
-    package="eu.kanade.tachiyomi.extension.en.ishallmasterthisfamily">
+<manifest xmlns:android="http://schemas.getandroid.com/apk/res/android">
 
     <application>
         <meta-data
