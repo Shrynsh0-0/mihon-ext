@@ -50,5 +50,5 @@ repositories {
 dependencies {
     implementation "org.jsoup:jsoup:1.16.1"
     implementation "com.squareup.okhttp3:okhttp:4.11.0"
-    compileOnly "eu.kanade.tachiyomi:source-api:1.1"
+    compileOnly "org.tachiyomi:source-api:1.1"
 }
