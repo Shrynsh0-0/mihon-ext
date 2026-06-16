@@ -6,8 +6,8 @@ buildscript {
 }
 
 plugins {
-    id 'com.android.application' version '8.2.0'
-    id 'org.jetbrains.kotlin.android' version '1.9.0'
+    id 'com.android.application' version '8.4.0'
+    id 'org.jetbrains.kotlin.android' version '1.9.20'
 }
 
 android {
@@ -20,6 +20,16 @@ android {
         targetSdk 34
         versionCode 1
         versionName "1.0.0"
+    }
+
+    // THIS IS THE FIX: Explicitly point Android to your custom Mihon folder paths
+    sourceSets {
+        main {
+            manifest.srcFile 'src/en/ishallmasterthisfamily/AndroidManifest.xml'
+            java.srcDirs = ['src/en/ishallmasterthisfamily/src']
+            res.srcDirs = ['src/en/ishallmasterthisfamily/res']
+            assets.srcDirs = ['src/en/ishallmasterthisfamily/assets']
+        }
     }
 }
 
