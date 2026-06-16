@@ -25,6 +25,9 @@ jobs:
       with:
         gradle-version: '8.7'
 
+    - name: Grant Execute Permission to Wrapper Script
+      run: chmod +x gradlew
+
     - name: Build Extension Package
       run: ./gradlew assembleRelease --no-daemon
 
