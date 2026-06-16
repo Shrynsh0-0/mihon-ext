@@ -20,13 +20,12 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Generate Gradle Wrapper Files
-      run: gradle wrapper --gradle-version 8.9
+    - name: Setup Gradle (Force Version 8.7)
+      uses: gradle/actions/setup-gradle@v3
+      with:
+        gradle-version: '8.7'
 
-    - name: Grant Execute Permission for Gradle
-      run: chmod +x gradlew
-
-    - name: Build Extension Package with Gradle
+    - name: Build Extension Package
       run: ./gradlew assembleRelease --no-daemon
 
     - name: Upload Finished APK File
