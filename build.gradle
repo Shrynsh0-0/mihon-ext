@@ -1,0 +1,29 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        google()
+    }
+}
+
+plugins {
+    id 'com.android.application' version '8.2.0'
+    id 'org.jetbrains.kotlin.android' version '1.9.0'
+}
+
+android {
+    namespace 'eu.kanade.tachiyomi.extension.en.ishallmasterthisfamily'
+    compileSdk 34
+    
+    defaultConfig {
+        applicationId 'eu.kanade.tachiyomi.extension.en.ishallmasterthisfamily'
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0.0"
+    }
+}
+
+dependencies {
+    implementation "org.jsoup:jsoup:1.16.1"
+    implementation "com.squareup.okhttp3:okhttp:4.11.0"
+}
