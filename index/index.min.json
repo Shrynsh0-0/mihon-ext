@@ -8,6 +8,14 @@
     "version": "1.0.0",
     "nsfw": 0,
     "hasReadme": false,
-    "hasChangelog": false
+    "hasChangelog": false,
+    "sources": [
+      {
+        "name": "I Shall Master This Family",
+        "lang": "en",
+        "id": "1234567890",
+        "baseUrl": "https://ishallmasterthisfamily.art"
+      }
+    ]
   }
 ]
