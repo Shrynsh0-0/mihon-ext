@@ -22,6 +22,16 @@ android {
         versionName "1.0.0"
     }
 
+    // 1. ADD SIGNING CONFIGURATION
+    signingConfigs {
+        release {
+            storeFile file(System.getProperty("user.home") + "/.android/debug.keystore")
+            storePassword "android"
+            keyAlias "androiddebugkey"
+            keyPassword "android"
+        }
+    }
+
     sourceSets {
         main {
             manifest.srcFile 'manifest-fix/AndroidManifest.xml'
@@ -29,13 +39,20 @@ android {
         }
     }
 
-    // THIS IS THE FINAL FIX: Forces both Java and Kotlin to use target version 17
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
         jvmTarget = '17'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            // 2. LINK SIGNING TO RELEASE BUILD
+            signingConfig signingConfigs.release
+        }
     }
 }
 
