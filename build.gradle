@@ -22,14 +22,20 @@ android {
         versionName "1.0.0"
     }
 
-    // THIS IS THE FIX: Explicitly point Android to your custom Mihon folder paths
     sourceSets {
         main {
             manifest.srcFile 'manifest-fix/AndroidManifest.xml'
             java.srcDirs = ['src/en/ishallmasterthisfamily/src']
-            res.srcDirs = ['src/en/ishallmasterthisfamily/res']
-            assets.srcDirs = ['src/en/ishallmasterthisfamily/assets']
         }
+    }
+
+    // THIS IS THE FINAL FIX: Forces both Java and Kotlin to use target version 17
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
     }
 }
 
