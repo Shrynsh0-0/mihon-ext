@@ -51,6 +51,6 @@ dependencies {
     implementation "org.jsoup:jsoup:1.16.1"
     implementation "com.squareup.okhttp3:okhttp:4.11.0"
     
-    // This library includes all core Tachiyomi/Mihon source API structures natively
-    compileOnly "com.github.MihonApp:extensions-lib:1.4.4"
+    // THE FIX: Use the modernized TachiyomiX stub library that replaced extensions-lib
+    compileOnly "com.github.mihonapp:tachiyomix:1.6"
 }
