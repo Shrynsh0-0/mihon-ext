@@ -44,11 +44,13 @@ android {
 repositories {
     mavenCentral()
     google()
+    maven { url "https://jitpack.io" }
 }
 
 dependencies {
     implementation "org.jsoup:jsoup:1.16.1"
     implementation "com.squareup.okhttp3:okhttp:4.11.0"
-    compileOnly "com.github.mihonapp:extensions-lib:1.4.4"
-    implementation "eu.kanade.tachiyomi:source-api:1.1"
+    
+    // This library includes all core Tachiyomi/Mihon source API structures natively
+    compileOnly "com.github.MihonApp:extensions-lib:1.4.4"
 }
