@@ -51,6 +51,6 @@ dependencies {
     implementation "org.jsoup:jsoup:1.16.1"
     implementation "com.squareup.okhttp3:okhttp:4.11.0"
     
-    // THE FIX: Use the modernized TachiyomiX stub library that replaced extensions-lib
-    compileOnly "com.github.mihonapp:tachiyomix:1.6"
+    // THE FIX: Use capitalized MihonApp precisely so JitPack can resolve the dependency
+    compileOnly "com.github.MihonApp:tachiyomix:1.6"
 }
