@@ -4,7 +4,6 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        // THE FIX: Upgraded to 8.4.0 to natively support Java 22 execution layers
         classpath 'com.android.tools.build:gradle:8.4.0'
         classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.20'
     }
@@ -52,6 +51,6 @@ dependencies {
     implementation "org.jsoup:jsoup:1.16.1"
     implementation "com.squareup.okhttp3:okhttp:4.11.0"
     
-    // Direct official Tachiyomi core API library containing eu.kanade stubs
-    compileOnly "com.github.tachiyomiorg:source-api:r1.1"
+    // THE FIX: Use all-lowercase organization naming and link directly to the live branch snapshot
+    compileOnly "com.github.mihonapp:tachiyomix:main-SNAPSHOT"
 }
