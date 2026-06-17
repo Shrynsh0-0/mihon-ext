@@ -44,6 +44,7 @@ android {
 repositories {
     mavenCentral()
     google()
+    // Explicit mirror channel for JitPack dependencies
     maven { url "https://jitpack.io" }
 }
 
@@ -51,6 +52,6 @@ dependencies {
     implementation "org.jsoup:jsoup:1.16.1"
     implementation "com.squareup.okhttp3:okhttp:4.11.0"
     
-    // THE FIX: Use capitalized MihonApp precisely so JitPack can resolve the dependency
-    compileOnly "com.github.MihonApp:tachiyomix:1.6"
+    // THE FIX: Direct tracking reference used by the official extension templates
+    compileOnly "org.tachiyomi:source-api:1.1"
 }
