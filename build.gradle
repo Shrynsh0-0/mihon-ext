@@ -4,8 +4,9 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.1.1'
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.20'
+        // THE FIX: Upgraded to 8.4.0 to natively support Java 22 execution layers
+        classpath 'com.android.tools.build:gradle:8.4.0'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.20'
     }
 }
 
@@ -14,12 +15,12 @@ apply plugin: 'kotlin-android'
 
 android {
     namespace "eu.kanade.tachiyomi.extension.en.ishallmasterthisfamily"
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "eu.kanade.tachiyomi.extension.en.ishallmasterthisfamily"
         minSdk 21
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0.0"
     }
@@ -32,12 +33,12 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
 }
 
@@ -51,6 +52,6 @@ dependencies {
     implementation "org.jsoup:jsoup:1.16.1"
     implementation "com.squareup.okhttp3:okhttp:4.11.0"
     
-    // THE FIX: Pull the exact Tachiyomi core api library containing eu.kanade stubs
+    // Direct official Tachiyomi core API library containing eu.kanade stubs
     compileOnly "com.github.tachiyomiorg:source-api:r1.1"
 }
