@@ -42,15 +42,14 @@ android {
 }
 
 repositories {
-    mavenCentral()
     google()
-    maven { url "https://jitpack.io" }
+    mavenCentral() // High-speed production mirror
 }
 
 dependencies {
     implementation "org.jsoup:jsoup:1.16.1"
     implementation "com.squareup.okhttp3:okhttp:4.11.0"
     
-    // THE FIX: Use all-lowercase organization naming and link directly to the live branch snapshot
-    compileOnly "com.github.mihonapp:tachiyomix:main-SNAPSHOT"
+    // THE ULTIMATE FIX: Pull the direct, static production stubs that don't need JitPack
+    compileOnly "eu.kanade.tachiyomi:source-api:1.1"
 }
