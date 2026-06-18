@@ -43,13 +43,15 @@ android {
 
 repositories {
     google()
-    mavenCentral() // High-speed production mirror
+    mavenCentral()
+    // Necessary to load the cached extension library stubs
+    maven { url "https://jitpack.io" }
 }
 
 dependencies {
     implementation "org.jsoup:jsoup:1.16.1"
     implementation "com.squareup.okhttp3:okhttp:4.11.0"
     
-    // THE ULTIMATE FIX: Pull the direct, static production stubs that don't need JitPack
-    compileOnly "eu.kanade.tachiyomi:source-api:1.1"
+    // THE ABSOLUTE FIX: Direct link to the universally pre-cached core stubs repository
+    compileOnly "com.github.tachiyomiorg:extensions-lib:1.4"
 }
