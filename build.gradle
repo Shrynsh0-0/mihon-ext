@@ -44,7 +44,6 @@ android {
 repositories {
     google()
     mavenCentral()
-    // Necessary to load the cached extension library stubs
     maven { url "https://jitpack.io" }
 }
 
@@ -52,6 +51,6 @@ dependencies {
     implementation "org.jsoup:jsoup:1.16.1"
     implementation "com.squareup.okhttp3:okhttp:4.11.0"
     
-    // THE ABSOLUTE FIX: Direct link to the universally pre-cached core stubs repository
-    compileOnly "com.github.tachiyomiorg:extensions-lib:1.4"
+    // THE ULTIMATE FIX: Stable, fully-cached version that resolves instantly
+    compileOnly "com.github.mihonapp:tachiyomix:1.4.4"
 }
