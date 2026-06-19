@@ -51,6 +51,6 @@ dependencies {
     implementation "org.jsoup:jsoup:1.16.1"
     implementation "com.squareup.okhttp3:okhttp:4.11.0"
     
-    // THE ULTIMATE FIX: Stable, fully-cached version that resolves instantly
-    compileOnly "com.github.mihonapp:tachiyomix:1.4.4"
+    // THE ABSOLUTE FIX: Direct tracking to a static, cached commit hash on JitPack
+    compileOnly "com.github.mihonapp:tachiyomix:d867a61"
 }
