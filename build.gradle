@@ -44,14 +44,13 @@ android {
 repositories {
     google()
     mavenCentral()
-    // THE FIX: Add the official Mihon extensions repository for instant pre-compiled downloads
-    maven { url "https://raw.githubusercontent.com/mihonapp/extensions-dist/repo/" }
+    maven { url "https://jitpack.io" } // Restored JitPack safely
 }
 
 dependencies {
     implementation "org.jsoup:jsoup:1.16.1"
     implementation "com.squareup.okhttp3:okhttp:4.11.0"
     
-    // Direct, stable compilation stubs from the official registry
-    compileOnly "eu.kanade.tachiyomi:multisrc:1.5"
+    // THE CRITICAL FIX: Target the explicit nested library sub-module
+    compileOnly "com.github.mihonapp.tachiyomix:library:1.6"
 }
