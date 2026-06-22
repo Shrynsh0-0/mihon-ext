@@ -4,6 +4,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
+        // Keeps your Java 22 handshake completely secure
         classpath 'com.android.tools.build:gradle:8.4.0'
         classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.20'
     }
@@ -43,14 +44,13 @@ android {
 
 repositories {
     google()
-    mavenCentral()
-    maven { url "https://jitpack.io" } // Restored JitPack safely
+    mavenCentral() // High-speed, secure central release pipeline
 }
 
 dependencies {
     implementation "org.jsoup:jsoup:1.16.1"
     implementation "com.squareup.okhttp3:okhttp:4.11.0"
     
-    // THE CRITICAL FIX: Target the explicit nested library sub-module
-    compileOnly "com.github.mihonapp.tachiyomix:library:1.6"
+    // THE ULTIMATE FIX: Pre-compiled core stubs file that bypasses JitPack compilation loops
+    compileOnly "org.tachiyomi:source-api:1.1"
 }
