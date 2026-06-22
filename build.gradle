@@ -51,6 +51,6 @@ dependencies {
     implementation "org.jsoup:jsoup:1.16.1"
     implementation "com.squareup.okhttp3:okhttp:4.11.0"
     
-    // THE FIX: Pulls the specific stubs package that maintains the eu.kanade package prefix
-    compileOnly "com.github.mihonapp:extensions-lib:8905bc9bc2"
+    // THE ULTIMATE FIX: Points to the stable, pre-cached archive fork containing the original eu.kanade namespaces
+    compileOnly "com.github.npgx:tachiyomi-extensions-lib:1.4"
 }
