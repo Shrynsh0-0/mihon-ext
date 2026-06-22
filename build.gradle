@@ -4,7 +4,6 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        // Keeps your Java 22 handshake completely secure
         classpath 'com.android.tools.build:gradle:8.4.0'
         classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.20'
     }
@@ -44,13 +43,14 @@ android {
 
 repositories {
     google()
-    mavenCentral() // High-speed, secure central release pipeline
+    mavenCentral()
+    maven { url "https://jitpack.io" }
 }
 
 dependencies {
     implementation "org.jsoup:jsoup:1.16.1"
     implementation "com.squareup.okhttp3:okhttp:4.11.0"
     
-    // THE ULTIMATE FIX: Pre-compiled core stubs file that bypasses JitPack compilation loops
-    compileOnly "org.tachiyomi:source-api:1.1"
+    // THE FIX: Pulls the specific stubs package that maintains the eu.kanade package prefix
+    compileOnly "com.github.mihonapp:extensions-lib:8905bc9bc2"
 }
