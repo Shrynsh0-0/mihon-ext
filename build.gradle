@@ -44,13 +44,13 @@ android {
 repositories {
     google()
     mavenCentral()
-    maven { url "https://jitpack.io" } // Safely handles the Keiyoushi stubs mirror
+    maven { url "https://jitpack.io" }
 }
 
 dependencies {
     implementation "org.jsoup:jsoup:1.16.1"
     implementation "com.squareup.okhttp3:okhttp:4.11.0"
     
-    // THE ULTIMATE FIX: Pull the active, lightweight stubs library with classic eu.kanade namespaces
-    compileOnly "com.github.keiyoushi:extensions-lib:main-SNAPSHOT"
+    // THE CRITICAL FIX: Direct tracking to the actual default 'master' branch layout
+    compileOnly "com.github.keiyoushi:extensions-lib:master-SNAPSHOT"
 }
