@@ -51,6 +51,7 @@ dependencies {
     implementation "org.jsoup:jsoup:1.16.1"
     implementation "com.squareup.okhttp3:okhttp:4.11.0"
     
-    // THE CRITICAL FIX: Direct tracking to the actual default 'master' branch layout
-    compileOnly "com.github.keiyoushi:extensions-lib:master-SNAPSHOT"
+    // THE ULTIMATE FIX: Target the explicit commit hash of Keiyoushi's extension stubs core 
+    // to instantly clear network timeout and metadata loading issues on JitPack.
+    compileOnly "com.github.keiyoushi:extensions-lib:b1c9ba4"
 }
