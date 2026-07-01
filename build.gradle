@@ -4,7 +4,6 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        // High-performance tools that natively support Java 22 execution layers securely
         classpath 'com.android.tools.build:gradle:8.4.0'
         classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.20'
     }
@@ -45,14 +44,13 @@ android {
 repositories {
     google()
     mavenCentral()
-    // THE FIX: Direct, instant link to Keiyoushi's official production repository channel
-    maven { url "https://raw.githubusercontent.com/keiyoushi/extensions-repo/repo/" }
+    maven { url "https://jitpack.io" } // Safely handles the community artifact
 }
 
 dependencies {
     implementation "org.jsoup:jsoup:1.16.1"
     implementation "com.squareup.okhttp3:okhttp:4.11.0"
     
-    // Direct, pre-compiled library providing the original eu.kanade interface stubs natively
-    compileOnly "eu.kanade.tachiyomi:multisrc:master-SNAPSHOT"
+    // THE ULTIMATE FIX: The precise, lowercase, pre-compiled extension library stubs
+    compileOnly "com.github.mihonapp:extensions-lib:1.4.4"
 }
