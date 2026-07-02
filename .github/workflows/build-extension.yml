@@ -29,13 +29,13 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build Extension (Debug Mode)
-        run: ./gradlew :src:en:ishallmasterthisfamily:assembleDebug
+        run: ./gradlew assembleDebug
 
       - name: Generate Extension Index Map
         run: |
           mkdir -p deploy/apk
           # Gathers your finished APK file and organizes it for distribution
-          find src/en/ishallmasterthisfamily/build/outputs/apk/debug/ -name "*.apk" -exec cp {} deploy/apk/ \;
+          find build/outputs/apk/debug/ -name "*.apk" -exec cp {} deploy/apk/ \;
           
           # Generates a clean, working standalone index mapping JSON file for Mihon
           cat <<EOF > deploy/index.min.json
