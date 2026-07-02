@@ -1,10 +1,13 @@
-name: Build Single Extension
+name: Build and Deploy Single Extension
 
 on:
   push:
     branches:
       - main
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -27,3 +30,35 @@ jobs:
 
       - name: Build Extension (Debug Mode)
         run: ./gradlew :src:en:ishallmasterthisfamily:assembleDebug
+
+      - name: Generate Extension Index Map
+        run: |
+          mkdir -p deploy/apk
+          # Gathers your finished APK file and organizes it for distribution
+          find src/en/ishallmasterthisfamily/build/outputs/apk/debug/ -name "*.apk" -exec cp {} deploy/apk/ \;
+          
+          # Generates a clean, working standalone index mapping JSON file for Mihon
+          cat <<EOF > deploy/index.min.json
+          [
+            {
+              "name": "I Shall Master This Family",
+              "pkg": "eu.kanade.tachiyomi.extension.en.ishallmasterthisfamily",
+              "apk": "apk/ishallmasterthisfamily-debug.apk",
+              "lang": "en",
+              "code": 1,
+              "version": "1.4.1",
+              "nsfw": 0,
+              "hasReadme": false,
+              "hasChangelog": false
+            }
+          ]
+          EOF
+          
+          # Renames the binary safely to guarantee matching references
+          mv deploy/apk/*.apk deploy/apk/ishallmasterthisfamily-debug.apk
+
+      - name: Deploy to Live Repo Branch
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: deploy
+          branch: repo # Forces deployment onto your distinct hosting track
