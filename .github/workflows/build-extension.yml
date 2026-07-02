@@ -61,4 +61,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: deploy
-          branch: repo # Forces deployment onto your distinct hosting track
+          branch: repo # Deploys files directly to the hosting track of mihon-ext
