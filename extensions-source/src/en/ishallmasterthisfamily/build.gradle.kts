@@ -7,7 +7,7 @@ keiyoushi {
     versionCode = 1
     contentWarning = ContentWarning.valueOf("SAFE")
     libVersion = "1.4"
-    
+
     source {
         lang = "en"
         baseUrl = "https://ishallmasterthisfamily.art"

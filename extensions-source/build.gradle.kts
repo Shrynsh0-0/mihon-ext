@@ -1,19 +1,22 @@
-pluginManagement {
-    repositories {
-        mavenCentral()
-        gradlePluginPortal()
-        google()
+buildscript {
+    dependencies {
+        classpath(libs.kotlin.gradle)
     }
 }
 
-dependencyResolutionManagement {
-    repositories {
-        mavenCentral()
-        google()
-    }
+plugins {
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.android.library) apply false
+    alias(libs.plugins.kotlin.serialization) apply false
+
+    alias(kei.plugins.spotless)
 }
 
-rootProject.name = "custom-extensions"
-
-// This completely locks the build to ONLY look at your extension!
-include(":src:en:ishallmasterthisfamily")
+val buildLogic: IncludedBuild = gradle.includedBuild("build-logic")
+tasks {
+    listOf("clean", "spotlessApply", "spotlessCheck").forEach { task ->
+        named(task) {
+            dependsOn(buildLogic.task(":$task"))
+        }
+    }
+}

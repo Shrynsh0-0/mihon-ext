@@ -52,5 +52,5 @@ dependencies {
     implementation "com.squareup.okhttp3:okhttp:4.11.0"
     
     // THE ULTIMATE FIX: The precise, lowercase, pre-compiled extension library stubs
-    compileOnly "com.github.mihonapp:extensions-lib:1.4.4"
+    compileOnly "com.github.tachiyomiorg:extensions-lib:1.4.4"
 }
